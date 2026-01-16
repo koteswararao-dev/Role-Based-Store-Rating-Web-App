@@ -17,17 +17,3 @@ services:
         generateValue: true
       - key: NODE_ENV
         value: production
-
-  # =========================
-  # Frontend Service (React)
-  # =========================
-  - type: static
-    name: roxiler-frontend
-    plan: free
-    rootDir: frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: build
-    pullRequestPreviewsEnabled: true
-    envVars:
-      - key: REACT_APP_API_URL
-        value: https://roxiler-backend.onrender.com
