@@ -1,7 +1,6 @@
 const { Store, User, Rating } = require('../models');
 const { sequelize } = require('../config/database');
 const { Op } = require('sequelize');
-const { Op } = require('sequelize');
 
 exports.getAllStores = async (req, res) => {
   try {
