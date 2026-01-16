@@ -18,6 +18,7 @@ const AdminDashboard = () => {
     fetchStats();
     fetchStores();
     fetchUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchStats = async () => {
@@ -98,6 +99,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     if (activeTab === 'stores') fetchStores();
     if (activeTab === 'users') fetchUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters, sort, activeTab]);
 
   const owners = users.filter(u => u.role === 'owner');

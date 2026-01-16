@@ -14,6 +14,7 @@ const UserDashboard = () => {
 
   useEffect(() => {
     fetchStores();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchName, searchAddress, sort]);
 
   const fetchStores = async () => {

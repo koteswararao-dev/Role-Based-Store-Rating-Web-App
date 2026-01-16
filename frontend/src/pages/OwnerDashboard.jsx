@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ownerAPI } from '../services/api';
-import StoreCard from '../components/StoreCard';
 import Header from '../components/Header';
 
 const OwnerDashboard = () => {
