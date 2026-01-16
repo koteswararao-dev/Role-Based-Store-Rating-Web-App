@@ -1,13 +1,15 @@
 services:
-  # Backend Service
+  # =========================
+  # Backend Service (Node.js)
+  # =========================
   - type: web
     name: roxiler-backend
     env: node
     region: oregon
     plan: free
-    buildCommand: cd backend && npm install
-    startCommand: cd backend && npm start
-    healthCheckPath: /
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
     envVars:
       - key: PORT
         value: 5000
@@ -16,15 +18,16 @@ services:
       - key: NODE_ENV
         value: production
 
-  # Frontend Service
-  - type: web
+  # =========================
+  # Frontend Service (React)
+  # =========================
+  - type: static
     name: roxiler-frontend
-    env: static
-    region: oregon
     plan: free
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: frontend/build
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
     pullRequestPreviewsEnabled: true
     envVars:
       - key: REACT_APP_API_URL
-        sync: false
+        value: https://roxiler-backend.onrender.com
